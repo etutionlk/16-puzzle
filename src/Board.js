@@ -4,9 +4,11 @@ import Square from "./Square";
 
 class Board extends Component {
     renderSquare(i) {
-        const {board} = this.props.state
+        const {coordinates,board} = this.props.state
+        const clickedItem = board[i]
+        const x_y = coordinates[i]
 
-        return <Square value={board[i]===0 ? "":board[i]}/>;
+        return <Square onClick={() => this.props.onClick(i,clickedItem,x_y)} value={board[i]===0 ? "":board[i]}/>;
     }
 
     render() {
